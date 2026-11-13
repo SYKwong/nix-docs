@@ -5,7 +5,8 @@ import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nix.kyle-kwong.com',
+  site: 'https://sykwong.github.io',
+  base: '/nix-docs',
   integrations: [
     mermaid({
       autoTheme: true,
@@ -32,19 +33,19 @@ export default defineConfig({
                 const prev = document.querySelector('a[rel="prev"]');
                 if (prev instanceof HTMLElement) {
                   prev.click();
-                } else if (path === '/installation') {
-                  window.location.href = '/';
+                } else if (path === '/nix-docs/installation') {
+                  window.location.href = '/nix-docs/';
                 }
               } else if (event.key === 'ArrowRight') {
                 const next = document.querySelector('a[rel="next"]');
                 if (next instanceof HTMLElement) {
                   next.click();
-                } else if (path === '/') {
+                } else if (path === '/nix-docs' || path === '/') {
                   const heroLink = document.querySelector('.hero .actions a.primary, .hero a[href]');
                   if (heroLink instanceof HTMLElement) {
                     heroLink.click();
                   } else {
-                    window.location.href = '/installation/';
+                    window.location.href = '/nix-docs/installation/';
                   }
                 }
               }
