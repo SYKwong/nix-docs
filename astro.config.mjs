@@ -82,27 +82,6 @@ export default defineConfig({
             link: '/nix-config/',
             icon: 'laptop',
             items: [
-              '/nix-config',
-              '/installation',
-              '/adoption',
-              '/post-installation',
-              '/bios-update',
-              '/architecture',
-              '/split-ci',
-              '/hosts',
-              '/home-manager',
-              '/dotfiles',
-              '/modules',
-              '/sunshine',
-              '/gaming',
-              '/flatpak',
-              '/shell-scripts',
-              '/overlays',
-              '/secrets',
-              '/desktop-entries',
-              '/code-quality',
-            ],
-            sidebar: [
               {
                 label: 'Getting Started',
                 items: [
@@ -148,8 +127,7 @@ export default defineConfig({
             label: 'flake-templates',
             link: '/templates/',
             icon: 'document',
-            items: ['/templates/**'],
-            sidebar: [
+            items: [
               {
                 label: 'Flake Templates',
                 items: [
