@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
+import starlightSidebarTopics from 'starlight-sidebar-topics';
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,19 +35,14 @@ export default defineConfig({
                 if (prev instanceof HTMLElement) {
                   prev.click();
                 } else if (path === '/nix-docs/installation') {
-                  window.location.href = '/nix-docs/';
+                  window.location.href = '/nix-docs/nix-config/';
                 }
               } else if (event.key === 'ArrowRight') {
                 const next = document.querySelector('a[rel="next"]');
                 if (next instanceof HTMLElement) {
                   next.click();
-                } else if (path === '/nix-docs' || path === '/') {
-                  const heroLink = document.querySelector('.hero .actions a.primary, .hero a[href]');
-                  if (heroLink instanceof HTMLElement) {
-                    heroLink.click();
-                  } else {
-                    window.location.href = '/nix-docs/installation/';
-                  }
+                } else if (path === '/nix-docs/nix-config') {
+                  window.location.href = '/nix-docs/installation/';
                 }
               }
             });
@@ -79,53 +75,91 @@ export default defineConfig({
           href: 'https://github.com/SYKwong/flake-templates',
         },
       ],
-      sidebar: [
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'nix-config Overview', slug: 'nix-config' },
-            { label: 'System Installation', slug: 'installation' },
-            { label: 'Adoption & Forking', slug: 'adoption' },
-            { label: 'Post-Installation Setup', slug: 'post-installation' },
-            { label: 'BIOS & Firmware', slug: 'bios-update' },
-          ],
-        },
-        {
-          label: 'Architecture & Hosts',
-          items: [
-            { label: 'Flake Architecture', slug: 'architecture' },
-            { label: 'Split CI Architecture', slug: 'split-ci' },
-            { label: 'Host Configurations', slug: 'hosts' },
-            { label: 'Home Manager', slug: 'home-manager' },
-            { label: 'Out-of-Store Dotfiles', slug: 'dotfiles' },
-          ],
-        },
-        {
-          label: 'Modules & Extensibility',
-          items: [
-            { label: 'System Modules', slug: 'modules' },
-            { label: 'Sunshine Streaming & Tablet Display', slug: 'sunshine' },
-            { label: 'Gaming & Gamescope', slug: 'gaming' },
-            { label: 'Declarative Flatpak', slug: 'flatpak' },
-            { label: 'Custom Shell Scripts', slug: 'shell-scripts' },
-            { label: 'Nixpkgs Overlays', slug: 'overlays' },
-          ],
-        },
-        {
-          label: 'Guides & Operations',
-          items: [
-            { label: 'Secrets Management', slug: 'secrets' },
-            { label: 'Managing Desktop Entries', slug: 'desktop-entries' },
-            { label: 'Code Quality & Evaluation', slug: 'code-quality' },
-          ],
-        },
-        {
-          label: 'Flake Templates',
-          items: [
-            { label: 'Overview', slug: 'templates' },
-            { label: 'C Playground', slug: 'templates/c' },
-          ],
-        },
+      plugins: [
+        starlightSidebarTopics([
+          {
+            label: 'nix-config',
+            link: '/nix-config/',
+            icon: 'laptop',
+            items: [
+              '/nix-config',
+              '/installation',
+              '/adoption',
+              '/post-installation',
+              '/bios-update',
+              '/architecture',
+              '/split-ci',
+              '/hosts',
+              '/home-manager',
+              '/dotfiles',
+              '/modules',
+              '/sunshine',
+              '/gaming',
+              '/flatpak',
+              '/shell-scripts',
+              '/overlays',
+              '/secrets',
+              '/desktop-entries',
+              '/code-quality',
+            ],
+            sidebar: [
+              {
+                label: 'Getting Started',
+                items: [
+                  { label: 'Overview', slug: 'nix-config' },
+                  { label: 'System Installation', slug: 'installation' },
+                  { label: 'Adoption & Forking', slug: 'adoption' },
+                  { label: 'Post-Installation Setup', slug: 'post-installation' },
+                  { label: 'BIOS & Firmware', slug: 'bios-update' },
+                ],
+              },
+              {
+                label: 'Architecture & Hosts',
+                items: [
+                  { label: 'Flake Architecture', slug: 'architecture' },
+                  { label: 'Split CI Architecture', slug: 'split-ci' },
+                  { label: 'Host Configurations', slug: 'hosts' },
+                  { label: 'Home Manager', slug: 'home-manager' },
+                  { label: 'Out-of-Store Dotfiles', slug: 'dotfiles' },
+                ],
+              },
+              {
+                label: 'Modules & Extensibility',
+                items: [
+                  { label: 'System Modules', slug: 'modules' },
+                  { label: 'Sunshine Streaming & Tablet Display', slug: 'sunshine' },
+                  { label: 'Gaming & Gamescope', slug: 'gaming' },
+                  { label: 'Declarative Flatpak', slug: 'flatpak' },
+                  { label: 'Custom Shell Scripts', slug: 'shell-scripts' },
+                  { label: 'Nixpkgs Overlays', slug: 'overlays' },
+                ],
+              },
+              {
+                label: 'Guides & Operations',
+                items: [
+                  { label: 'Secrets Management', slug: 'secrets' },
+                  { label: 'Managing Desktop Entries', slug: 'desktop-entries' },
+                  { label: 'Code Quality & Evaluation', slug: 'code-quality' },
+                ],
+              },
+            ],
+          },
+          {
+            label: 'flake-templates',
+            link: '/templates/',
+            icon: 'document',
+            items: ['/templates/**'],
+            sidebar: [
+              {
+                label: 'Flake Templates',
+                items: [
+                  { label: 'Overview', slug: 'templates' },
+                  { label: 'C Playground', slug: 'templates/c' },
+                ],
+              },
+            ],
+          },
+        ]),
       ],
     }),
   ],

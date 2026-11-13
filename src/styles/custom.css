@@ -82,3 +82,90 @@
 .sl-markdown-content :is(th:first-child, td:first-child) * {
   white-space: nowrap !important;
 }
+
+/* Landing page project selector cards */
+.project-picker-label {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-3);
+  margin: 0 0 1.25rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.25rem;
+  max-width: 56rem;
+  margin: 0 auto 2rem;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 2rem 1.5rem 1.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--sl-color-gray-6);
+  border: 1px solid var(--sl-color-hairline);
+  text-decoration: none !important;
+  color: var(--sl-color-text) !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--sl-color-accent);
+  background-color: var(--sl-color-gray-5);
+  transform: translateY(-2px);
+}
+
+.project-card--featured {
+  border-color: var(--sl-color-accent);
+}
+
+.project-badge {
+  position: absolute;
+  top: -0.65rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background-color: var(--sl-color-accent);
+  color: var(--sl-color-black);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sl-color-white);
+  margin-top: 0.25rem;
+}
+
+.project-subtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-3);
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--sl-color-gray-2);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.project-cta {
+  margin-top: auto;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sl-color-accent);
+}

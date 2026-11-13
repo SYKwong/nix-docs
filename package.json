@@ -14,7 +14,8 @@
     "astro": "^7.4.0",
     "astro-mermaid": "^2.1.0",
     "mermaid": "^11.4.14",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "starlight-sidebar-topics": "^0.8.0"
   },
   "overrides": {
     "katex": "^0.18.2",
