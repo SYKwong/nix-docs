@@ -41,8 +41,19 @@
   }
 }
 
-/* Homepage (Splash): Add left and right padding equal to the sidebar width
-   so the homepage content maintains the exact same width and alignment as documentation pages */
+/* Homepage (Splash): Align header search bar and content padding with sidebar pages */
+@media (min-width: 50rem) {
+  :root:not([data-has-sidebar]) .header {
+    grid-template-columns:
+      minmax(
+        calc(var(--sl-sidebar-width) - var(--sl-nav-pad-x) - var(--sl-nav-gap)),
+        auto
+      )
+      1fr
+      auto;
+  }
+}
+
 @media (min-width: 72rem) {
   :root:not([data-has-sidebar]) .content-panel {
     padding-inline: calc(var(--sl-sidebar-width) + var(--sl-content-pad-x, 1.5rem)) !important;
