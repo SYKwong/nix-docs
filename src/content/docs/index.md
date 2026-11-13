@@ -1,34 +1,23 @@
 ---
 title: Nix Docs
-description: Unified documentation for nix-config and flake-templates.
+description: Documentation hub for nix-config and flake-templates.
 template: splash
 hero:
-  tagline: Unified documentation for the nix-config multi-host NixOS fleet and reusable flake-templates.
+  tagline: Select a project to browse its documentation.
   actions:
-    - text: System Installation
-      link: /installation/
-      icon: right-arrow
+    - text: nix-config
+      link: /nix-config/
+      icon: laptop
       variant: primary
-    - text: Flake Templates
+    - text: flake-templates
       link: /templates/
       icon: document
       variant: secondary
-    - text: nix-config (GitLab)
-      link: https://gitlab.com/kylekwong/nix-config
-      icon: external
-      variant: minimal
-    - text: flake-templates (GitHub)
-      link: https://github.com/SYKwong/flake-templates
-      icon: external
-      variant: minimal
 ---
 
-## Quick Navigation
+## Projects
 
-| Section | Description | Key Pages |
+| Project | Description | Source |
 | :--- | :--- | :--- |
-| **Getting Started** | Setting up new machines from scratch | [System Installation](/installation/) • [Adoption & Forking](/adoption/) • [Post-Installation](/post-installation/) • [BIOS & Firmware](/bios-update/) |
-| **Architecture** | Flake organization and machine topologies | [Flake Architecture](/architecture/) • [Split CI Architecture](/split-ci/) • [Hosts Inventory](/hosts/) • [Home Manager](/home-manager/) • [Dotfiles](/dotfiles/) |
-| **Modules** | Reusable system capabilities and integrations | [System Modules](/modules/) • [Sunshine Streaming](/sunshine/) • [Gaming & Gamescope](/gaming/) • [Flatpak](/flatpak/) • [Shell Scripts](/shell-scripts/) • [Overlays](/overlays/) |
-| **Operations** | Day-to-day maintenance and security | [Secrets (agenix)](/secrets/) • [Desktop Entries](/desktop-entries/) • [Code Quality](/code-quality/) |
-| **Flake Templates** | Standalone project & playground templates | [Templates Overview](/templates/) • [C Playground](/templates/c/) |
+| [**nix-config**](/nix-config/) | Declarative multi-host NixOS and Home Manager fleet: system installation, host configurations, dotfiles, secrets, and CI. | [GitLab](https://gitlab.com/kylekwong/nix-config) |
+| [**flake-templates**](/templates/) | Self-contained, system-agnostic Nix flake project templates (C playground with Ceedling 1.2.2, `gcc`, `gdb`, `just`, and `clangd`). | [GitHub](https://github.com/SYKwong/flake-templates) |

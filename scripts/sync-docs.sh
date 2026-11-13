@@ -24,7 +24,9 @@ fi
 
 for file in "$nix_config_src"/*; do
   base="$(basename "$file")"
-  if [ "$base" != "index.md" ]; then
+  if [ "$base" = "index.md" ]; then
+    cp "$file" "$DOCS_DIR/nix-config.md"
+  else
     cp -r "$file" "$DOCS_DIR/$base"
   fi
 done

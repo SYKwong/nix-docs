@@ -82,6 +82,7 @@ export default defineConfig({
         {
           label: 'Getting Started',
           items: [
+            { label: 'nix-config Overview', slug: 'nix-config' },
             { label: 'System Installation', slug: 'installation' },
             { label: 'Adoption & Forking', slug: 'adoption' },
             { label: 'Post-Installation Setup', slug: 'post-installation' },
