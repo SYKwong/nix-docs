@@ -1,0 +1,23 @@
+{
+  "name": "nix-docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "sync": "bash scripts/sync-docs.sh",
+    "dev": "bash scripts/sync-docs.sh && astro dev",
+    "start": "npm run dev",
+    "build": "bash scripts/sync-docs.sh && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.42.6",
+    "astro": "^7.4.0",
+    "astro-mermaid": "^2.1.0",
+    "mermaid": "^11.4.14",
+    "sharp": "^0.35.5"
+  },
+  "overrides": {
+    "katex": "^0.18.2",
+    "postcss-selector-parser": "^7.1.6"
+  }
+}
