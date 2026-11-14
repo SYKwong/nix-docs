@@ -5,7 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DOCS_DIR="$ROOT_DIR/src/content/docs"
 CACHE_DIR="$ROOT_DIR/.cache"
 
-NIX_CONFIG_LOCAL="$HOME/nix-config/docs/src/content/docs"
+NIX_CONFIG_LOCAL="$HOME/nix-config/docs"
 TEMPLATES_LOCAL="$HOME/Templates/flake-templates/docs"
 
 # Clean previously synced files while keeping the unified landing page.
@@ -19,7 +19,7 @@ else
   rm -rf "$CACHE_DIR/nix-config"
   mkdir -p "$CACHE_DIR"
   git clone --depth 1 https://gitlab.com/kylekwong/nix-config.git "$CACHE_DIR/nix-config"
-  nix_config_src="$CACHE_DIR/nix-config/docs/src/content/docs"
+  nix_config_src="$CACHE_DIR/nix-config/docs"
 fi
 
 for file in "$nix_config_src"/*; do

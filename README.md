@@ -2,7 +2,7 @@
 
 Unified Astro Starlight documentation site deployed at **https://nix.kyle-kwong.com**, pulling plain Markdown from:
 
-- [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config) (`docs/src/content/docs/`)
+- [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config) (`docs/`)
 - [`SYKwong/flake-templates`](https://github.com/SYKwong/flake-templates) (`docs/`)
 
 ## Local Development
