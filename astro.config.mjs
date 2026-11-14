@@ -6,8 +6,7 @@ import starlightSidebarTopics from 'starlight-sidebar-topics';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sykwong.github.io',
-  base: '/nix-docs',
+  site: 'https://nix.kyle-kwong.com',
   integrations: [
     mermaid({
       autoTheme: true,
@@ -34,15 +33,15 @@ export default defineConfig({
                 const prev = document.querySelector('a[rel="prev"]');
                 if (prev instanceof HTMLElement) {
                   prev.click();
-                } else if (path === '/nix-docs/installation') {
-                  window.location.href = '/nix-docs/nix-config/';
+                } else if (path === '/installation') {
+                  window.location.href = '/nix-config/';
                 }
               } else if (event.key === 'ArrowRight') {
                 const next = document.querySelector('a[rel="next"]');
                 if (next instanceof HTMLElement) {
                   next.click();
-                } else if (path === '/nix-docs/nix-config') {
-                  window.location.href = '/nix-docs/installation/';
+                } else if (path === '/nix-config') {
+                  window.location.href = '/installation/';
                 }
               }
             });

@@ -44,7 +44,3 @@ fi
 
 mkdir -p "$DOCS_DIR/templates"
 cp -r "$templates_src"/. "$DOCS_DIR/templates/"
-
-# Rewrite root-relative markdown links (e.g. /installation/) for GitHub Pages subpath (/nix-docs).
-find "$DOCS_DIR" -name '*.md' ! -path "$DOCS_DIR/index.md" -exec \
-  sed -i -E 's|\]\((/[^/][^)]*)\)|](/nix-docs\1)|g; s|^([[:space:]]*link:[[:space:]]*)(/[^/].*)$|\1/nix-docs\2|g; s|\]\(/nix-docs/nix-docs/|](/nix-docs/|g; s|link:[[:space:]]*/nix-docs/nix-docs/|link: /nix-docs/|g' {} +
