@@ -131,7 +131,9 @@ export default defineConfig({
                 label: 'Flake Templates',
                 items: [
                   { label: 'Overview', slug: 'templates' },
-                  { label: 'C Playground', slug: 'templates/c' },
+                  { label: 'CI & Automation', slug: 'templates/ci' },
+                  { label: 'C (Clang)', slug: 'templates/c-clang' },
+                  { label: 'C (GCC)', slug: 'templates/c-gcc' },
                 ],
               },
             ],
