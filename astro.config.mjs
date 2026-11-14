@@ -128,12 +128,22 @@ export default defineConfig({
             icon: 'document',
             items: [
               {
-                label: 'Flake Templates',
+                label: 'General',
                 items: [
                   { label: 'Overview', slug: 'templates' },
                   { label: 'CI & Automation', slug: 'templates/ci' },
-                  { label: 'C (Clang)', slug: 'templates/c-clang' },
-                  { label: 'C (GCC)', slug: 'templates/c-gcc' },
+                ],
+              },
+              {
+                label: 'Language Templates',
+                items: [
+                  {
+                    label: 'C',
+                    items: [
+                      { label: 'C (Clang)', slug: 'templates/c/clang' },
+                      { label: 'C (GCC)', slug: 'templates/c/gcc' },
+                    ],
+                  },
                 ],
               },
             ],
