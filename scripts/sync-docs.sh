@@ -26,18 +26,9 @@ sync_nix_config() {
     src_dir="$CACHE_DIR/nix-config/docs"
   fi
 
-  # Remove previous nix-config top-level docs while preserving index.md and templates/
-  find "$DOCS_DIR" -mindepth 1 -maxdepth 1 ! -name 'index.md' ! -name 'templates' -exec rm -rf {} +
-
-  for file in "$src_dir"/*; do
-    local base
-    base="$(basename "$file")"
-    if [ "$base" = "index.md" ]; then
-      cp "$file" "$DOCS_DIR/nix-config.md"
-    else
-      cp -r "$file" "$DOCS_DIR/$base"
-    fi
-  done
+  rm -rf "$DOCS_DIR/nix-config"
+  mkdir -p "$DOCS_DIR/nix-config"
+  cp -r "$src_dir"/. "$DOCS_DIR/nix-config/"
 }
 
 sync_flake_templates() {

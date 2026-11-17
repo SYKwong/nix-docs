@@ -33,15 +33,19 @@ export default defineConfig({
                 const prev = document.querySelector('a[rel="prev"]');
                 if (prev instanceof HTMLElement) {
                   prev.click();
-                } else if (path === '/installation') {
+                } else if (path === '/nix-config/installation') {
                   window.location.href = '/nix-config/';
+                } else if (path === '/templates/ci') {
+                  window.location.href = '/templates/';
                 }
               } else if (event.key === 'ArrowRight') {
                 const next = document.querySelector('a[rel="next"]');
                 if (next instanceof HTMLElement) {
                   next.click();
                 } else if (path === '/nix-config') {
-                  window.location.href = '/installation/';
+                  window.location.href = '/nix-config/installation/';
+                } else if (path === '/templates') {
+                  window.location.href = '/templates/ci/';
                 }
               }
             });
@@ -85,39 +89,39 @@ export default defineConfig({
                 label: 'Getting Started',
                 items: [
                   { label: 'Overview', slug: 'nix-config' },
-                  { label: 'System Installation', slug: 'installation' },
-                  { label: 'Adoption & Forking', slug: 'adoption' },
-                  { label: 'Post-Installation Setup', slug: 'post-installation' },
-                  { label: 'BIOS & Firmware', slug: 'bios-update' },
+                  { label: 'System Installation', slug: 'nix-config/installation' },
+                  { label: 'Adoption & Forking', slug: 'nix-config/adoption' },
+                  { label: 'Post-Installation Setup', slug: 'nix-config/post-installation' },
+                  { label: 'BIOS & Firmware', slug: 'nix-config/bios-update' },
                 ],
               },
               {
                 label: 'Architecture & Hosts',
                 items: [
-                  { label: 'Flake Architecture', slug: 'architecture' },
-                  { label: 'Split CI Architecture', slug: 'split-ci' },
-                  { label: 'Host Configurations', slug: 'hosts' },
-                  { label: 'Home Manager', slug: 'home-manager' },
-                  { label: 'Out-of-Store Dotfiles', slug: 'dotfiles' },
+                  { label: 'Flake Architecture', slug: 'nix-config/architecture' },
+                  { label: 'Split CI Architecture', slug: 'nix-config/split-ci' },
+                  { label: 'Host Configurations', slug: 'nix-config/hosts' },
+                  { label: 'Home Manager', slug: 'nix-config/home-manager' },
+                  { label: 'Out-of-Store Dotfiles', slug: 'nix-config/dotfiles' },
                 ],
               },
               {
                 label: 'Modules & Extensibility',
                 items: [
-                  { label: 'System Modules', slug: 'modules' },
-                  { label: 'Sunshine Streaming & Tablet Display', slug: 'sunshine' },
-                  { label: 'Gaming & Gamescope', slug: 'gaming' },
-                  { label: 'Declarative Flatpak', slug: 'flatpak' },
-                  { label: 'Custom Shell Scripts', slug: 'shell-scripts' },
-                  { label: 'Nixpkgs Overlays', slug: 'overlays' },
+                  { label: 'System Modules', slug: 'nix-config/modules' },
+                  { label: 'Sunshine Streaming & Tablet Display', slug: 'nix-config/sunshine' },
+                  { label: 'Gaming & Gamescope', slug: 'nix-config/gaming' },
+                  { label: 'Declarative Flatpak', slug: 'nix-config/flatpak' },
+                  { label: 'Custom Shell Scripts', slug: 'nix-config/shell-scripts' },
+                  { label: 'Nixpkgs Overlays', slug: 'nix-config/overlays' },
                 ],
               },
               {
                 label: 'Guides & Operations',
                 items: [
-                  { label: 'Secrets Management', slug: 'secrets' },
-                  { label: 'Managing Desktop Entries', slug: 'desktop-entries' },
-                  { label: 'Code Quality & Evaluation', slug: 'code-quality' },
+                  { label: 'Secrets Management', slug: 'nix-config/secrets' },
+                  { label: 'Managing Desktop Entries', slug: 'nix-config/desktop-entries' },
+                  { label: 'Code Quality & Evaluation', slug: 'nix-config/code-quality' },
                 ],
               },
             ],
