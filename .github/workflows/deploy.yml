@@ -1,4 +1,4 @@
-name: Deploy Unified Docs
+name: Sync & Deploy Unified Docs
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -21,25 +21,54 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.sync.outputs.should_deploy }}
     steps:
       - uses: actions/checkout@v4
 
+      - name: Sync upstream documentation
+        id: sync
+        run: |
+          if [ "${{ github.event_name }}" != "push" ]; then
+            bash scripts/sync-docs.sh --remote
+            git add src/content/docs
+            if ! git diff --cached --quiet; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git commit -m "chore(docs): sync upstream documentation"
+              git push origin HEAD:main
+              echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+            elif [ "${{ github.event_name }}" = "schedule" ]; then
+              echo "No upstream documentation changes detected on schedule. Skipping build."
+              echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.sync.outputs.should_deploy == 'true'
         with:
           node-version: 22
           cache: npm
 
       - name: Install dependencies
+        if: steps.sync.outputs.should_deploy == 'true'
         run: npm ci --no-audit --no-fund
 
-      - name: Sync docs & build Starlight site
+      - name: Build Starlight site
+        if: steps.sync.outputs.should_deploy == 'true'
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
+        if: steps.sync.outputs.should_deploy == 'true'
         with:
           path: dist
 
   deploy:
+    if: needs.build.outputs.should_deploy == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

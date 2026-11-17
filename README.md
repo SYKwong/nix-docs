@@ -24,4 +24,17 @@ npm install
 npm run dev
 ```
 
-`scripts/sync-docs.sh` uses local checkouts (`~/nix-config/docs` and `~/Templates/flake-templates/docs`) when present outside CI, and shallow-clones from GitLab/GitHub in CI.
+All upstream documentation is committed directly under `src/content/docs/` so `npm run dev` and `npm run build` work standalone without network clones.
+
+To pull the latest documentation from `nix-config` and `flake-templates`:
+
+```bash
+# Sync from local checkouts (~/nix-config/docs and ~/Templates/flake-templates/docs) when present:
+npm run sync
+
+# Force sync from upstream GitLab/GitHub remotes:
+bash scripts/sync-docs.sh --remote
+```
+
+> [!NOTE]
+> Files under `src/content/docs/` (except `src/content/docs/index.md`) are automatically synced and committed from [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config) and [`SYKwong/flake-templates`](https://github.com/SYKwong/flake-templates) via `.github/workflows/deploy.yml`. Edit documentation in its upstream source repository rather than directly in `src/content/docs/`.

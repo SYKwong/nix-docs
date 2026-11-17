@@ -2,5 +2,3 @@ node_modules/
 dist/
 .astro/
 .cache/
-src/content/docs/*
-!src/content/docs/index.md
