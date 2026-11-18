@@ -41,16 +41,16 @@
   }
 }
 
-/* Homepage (Splash): Align header search bar and content padding with sidebar pages */
+/* Align header search bar with the sidebar boundary across both splash and content pages */
 @media (min-width: 50rem) {
-  :root:not([data-has-sidebar]) .header {
+  :root .header {
     grid-template-columns:
       minmax(
         calc(var(--sl-sidebar-width) - var(--sl-nav-pad-x) - var(--sl-nav-gap)),
         auto
       )
       1fr
-      auto;
+      auto !important;
   }
 }
 
