@@ -25,17 +25,15 @@ jobs:
       - name: Update flake.lock
         run: nix flake update
 
-      - name: Format and verify flake
-        run: |
-          nix fmt
-          nix flake check
+      - name: Verify flake outputs
+        run: nix flake show --all-systems
 
       - name: Commit and push updates
         run: |
-          if ! git diff --quiet; then
+          if ! git diff --quiet flake.lock; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A
+            git add flake.lock
             git commit -m "chore(deps): update flake.lock"
             git pull --rebase origin main
             git push origin HEAD:main

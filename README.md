@@ -50,4 +50,4 @@ nix fmt
 nix flake check
 ```
 
-Upstream-synced directories (`src/content/docs/nix-config/` and `src/content/docs/templates/`) and `package-lock.json` are excluded because they are formatted in their respective source repositories. `flake.lock` and in-range npm dependencies (`package-lock.json`) are updated automatically every week via `.github/workflows/update-flake.yml` and `.github/workflows/update-npm.yml`.
+Upstream-synced directories (`src/content/docs/nix-config/` and `src/content/docs/templates/`) and `package-lock.json` are excluded because they are formatted in their respective source repositories. Weekly workflows keep `flake.lock` (`.github/workflows/update-flake.yml`), in-range npm dependencies (`.github/workflows/update-npm.yml`), and formatting (`.github/workflows/format.yml`) up to date automatically.

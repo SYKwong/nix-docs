@@ -1,0 +1,39 @@
+name: Format Repository
+
+on:
+  schedule:
+    - cron: "15 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: format
+  cancel-in-progress: false
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Format repository
+        run: nix fmt
+
+      - name: Commit and push formatting changes
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "style: format with nix fmt"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "No formatting changes needed."
+          fi
