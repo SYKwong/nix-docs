@@ -7,14 +7,14 @@
   --sl-color-accent-high: #e2caff;
 
   /* Catppuccin Mocha Base & Grayscale */
-  --sl-color-white: #cdd6f4;       /* Text */
-  --sl-color-gray-1: #bac2de;      /* Subtext 1 */
-  --sl-color-gray-2: #a6adc8;      /* Subtext 0 */
-  --sl-color-gray-3: #9399b2;      /* Overlay 2 */
-  --sl-color-gray-4: #585b70;      /* Surface 2 */
-  --sl-color-gray-5: #313244;      /* Surface 0 */
-  --sl-color-gray-6: #181825;      /* Mantle */
-  --sl-color-black: #1e1e2e;       /* Base */
+  --sl-color-white: #cdd6f4; /* Text */
+  --sl-color-gray-1: #bac2de; /* Subtext 1 */
+  --sl-color-gray-2: #a6adc8; /* Subtext 0 */
+  --sl-color-gray-3: #9399b2; /* Overlay 2 */
+  --sl-color-gray-4: #585b70; /* Surface 2 */
+  --sl-color-gray-5: #313244; /* Surface 0 */
+  --sl-color-gray-6: #181825; /* Mantle */
+  --sl-color-black: #1e1e2e; /* Base */
 
   /* Catppuccin Mocha Accent Hues */
   --sl-hue-orange: 23;
@@ -55,21 +55,21 @@
   color-scheme: dark;
 }
 
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   /* Catppuccin Latte Accent (Mauve) */
   --sl-color-accent-low: #e8d5fc;
   --sl-color-accent: #8839ef;
   --sl-color-accent-high: #7227d8;
 
   /* Catppuccin Latte Base & Grayscale */
-  --sl-color-white: #4c4f69;       /* Text */
-  --sl-color-gray-1: #5c5f77;      /* Subtext 1 */
-  --sl-color-gray-2: #6c6f85;      /* Subtext 0 */
-  --sl-color-gray-3: #7c7f93;      /* Overlay 2 */
-  --sl-color-gray-4: #acb0be;      /* Surface 2 */
-  --sl-color-gray-5: #ccd0da;      /* Surface 0 */
-  --sl-color-gray-6: #e6e9ef;      /* Mantle */
-  --sl-color-black: #eff1f5;       /* Base */
+  --sl-color-white: #4c4f69; /* Text */
+  --sl-color-gray-1: #5c5f77; /* Subtext 1 */
+  --sl-color-gray-2: #6c6f85; /* Subtext 0 */
+  --sl-color-gray-3: #7c7f93; /* Overlay 2 */
+  --sl-color-gray-4: #acb0be; /* Surface 2 */
+  --sl-color-gray-5: #ccd0da; /* Surface 0 */
+  --sl-color-gray-6: #e6e9ef; /* Mantle */
+  --sl-color-black: #eff1f5; /* Base */
 
   /* Catppuccin Latte Accent Hues */
   --sl-hue-orange: 22;
@@ -205,7 +205,7 @@ site-search kbd {
 /* Code block typography: render all code and command tokens upright without italics */
 .expressive-code code span,
 .expressive-code .ec-line span,
-.expressive-code :where(span[style*='--0fs']),
-.expressive-code :where(span[style*='--1fs']) {
+.expressive-code :where(span[style*="--0fs"]),
+.expressive-code :where(span[style*="--1fs"]) {
   font-style: normal !important;
 }

@@ -1,23 +1,23 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
-import mermaid from 'astro-mermaid';
-import starlightSidebarTopics from 'starlight-sidebar-topics';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+import mermaid from "astro-mermaid";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nix.kyle-kwong.com',
+  site: "https://nix.kyle-kwong.com",
   integrations: [
     mermaid({
       autoTheme: true,
     }),
     starlight({
-      title: 'Nix Docs',
-      description: 'Unified documentation for nix-config and flake-templates',
-      customCss: ['./src/styles/catppuccin.css', './src/styles/custom.css'],
+      title: "Nix Docs",
+      description: "Unified documentation for nix-config and flake-templates",
+      customCss: ["./src/styles/catppuccin.css", "./src/styles/custom.css"],
       head: [
         {
-          tag: 'script',
+          tag: "script",
           content: `
             document.addEventListener('keydown', (event) => {
               if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
@@ -53,99 +53,126 @@ export default defineConfig({
         },
       ],
       expressiveCode: {
-        themes: ['catppuccin-mocha', 'catppuccin-latte'],
+        themes: ["catppuccin-mocha", "catppuccin-latte"],
         styleOverrides: {
-          borderRadius: '0.5rem',
-          borderColor: 'var(--sl-color-hairline)',
-          codeBackground: 'var(--sl-color-gray-6)',
+          borderRadius: "0.5rem",
+          borderColor: "var(--sl-color-hairline)",
+          codeBackground: "var(--sl-color-gray-6)",
           frames: {
-            editorBackground: 'var(--sl-color-gray-6)',
-            terminalBackground: 'var(--sl-color-gray-6)',
-            editorActiveTabBackground: 'var(--sl-color-gray-6)',
-            frameBoxShadowCssValue: 'none',
+            editorBackground: "var(--sl-color-gray-6)",
+            terminalBackground: "var(--sl-color-gray-6)",
+            editorActiveTabBackground: "var(--sl-color-gray-6)",
+            frameBoxShadowCssValue: "none",
           },
         },
       },
       social: [
         {
-          icon: 'gitlab',
-          label: 'nix-config (GitLab)',
-          href: 'https://gitlab.com/kylekwong/nix-config',
+          icon: "gitlab",
+          label: "nix-config (GitLab)",
+          href: "https://gitlab.com/kylekwong/nix-config",
         },
         {
-          icon: 'github',
-          label: 'flake-templates (GitHub)',
-          href: 'https://github.com/SYKwong/flake-templates',
+          icon: "github",
+          label: "flake-templates (GitHub)",
+          href: "https://github.com/SYKwong/flake-templates",
         },
       ],
       plugins: [
         starlightSidebarTopics([
           {
-            label: 'nix-config',
-            link: '/nix-config/',
-            icon: 'laptop',
+            label: "nix-config",
+            link: "/nix-config/",
+            icon: "laptop",
             items: [
               {
-                label: 'Getting Started',
+                label: "Getting Started",
                 items: [
-                  { label: 'Overview', slug: 'nix-config' },
-                  { label: 'System Installation', slug: 'nix-config/installation' },
-                  { label: 'Adoption & Forking', slug: 'nix-config/adoption' },
-                  { label: 'Post-Installation Setup', slug: 'nix-config/post-installation' },
-                  { label: 'BIOS & Firmware', slug: 'nix-config/bios-update' },
+                  { label: "Overview", slug: "nix-config" },
+                  {
+                    label: "System Installation",
+                    slug: "nix-config/installation",
+                  },
+                  { label: "Adoption & Forking", slug: "nix-config/adoption" },
+                  {
+                    label: "Post-Installation Setup",
+                    slug: "nix-config/post-installation",
+                  },
+                  { label: "BIOS & Firmware", slug: "nix-config/bios-update" },
                 ],
               },
               {
-                label: 'Architecture & Hosts',
+                label: "Architecture & Hosts",
                 items: [
-                  { label: 'Flake Architecture', slug: 'nix-config/architecture' },
-                  { label: 'Split CI Architecture', slug: 'nix-config/split-ci' },
-                  { label: 'Host Configurations', slug: 'nix-config/hosts' },
-                  { label: 'Home Manager', slug: 'nix-config/home-manager' },
-                  { label: 'Out-of-Store Dotfiles', slug: 'nix-config/dotfiles' },
+                  {
+                    label: "Flake Architecture",
+                    slug: "nix-config/architecture",
+                  },
+                  {
+                    label: "Split CI Architecture",
+                    slug: "nix-config/split-ci",
+                  },
+                  { label: "Host Configurations", slug: "nix-config/hosts" },
+                  { label: "Home Manager", slug: "nix-config/home-manager" },
+                  {
+                    label: "Out-of-Store Dotfiles",
+                    slug: "nix-config/dotfiles",
+                  },
                 ],
               },
               {
-                label: 'Modules & Extensibility',
+                label: "Modules & Extensibility",
                 items: [
-                  { label: 'System Modules', slug: 'nix-config/modules' },
-                  { label: 'Sunshine Streaming & Tablet Display', slug: 'nix-config/sunshine' },
-                  { label: 'Gaming & Gamescope', slug: 'nix-config/gaming' },
-                  { label: 'Declarative Flatpak', slug: 'nix-config/flatpak' },
-                  { label: 'Custom Shell Scripts', slug: 'nix-config/shell-scripts' },
-                  { label: 'Nixpkgs Overlays', slug: 'nix-config/overlays' },
+                  { label: "System Modules", slug: "nix-config/modules" },
+                  {
+                    label: "Sunshine Streaming & Tablet Display",
+                    slug: "nix-config/sunshine",
+                  },
+                  { label: "Gaming & Gamescope", slug: "nix-config/gaming" },
+                  { label: "Declarative Flatpak", slug: "nix-config/flatpak" },
+                  {
+                    label: "Custom Shell Scripts",
+                    slug: "nix-config/shell-scripts",
+                  },
+                  { label: "Nixpkgs Overlays", slug: "nix-config/overlays" },
                 ],
               },
               {
-                label: 'Guides & Operations',
+                label: "Guides & Operations",
                 items: [
-                  { label: 'Secrets Management', slug: 'nix-config/secrets' },
-                  { label: 'Managing Desktop Entries', slug: 'nix-config/desktop-entries' },
-                  { label: 'Code Quality & Evaluation', slug: 'nix-config/code-quality' },
+                  { label: "Secrets Management", slug: "nix-config/secrets" },
+                  {
+                    label: "Managing Desktop Entries",
+                    slug: "nix-config/desktop-entries",
+                  },
+                  {
+                    label: "Code Quality & Evaluation",
+                    slug: "nix-config/code-quality",
+                  },
                 ],
               },
             ],
           },
           {
-            label: 'flake-templates',
-            link: '/templates/',
-            icon: 'document',
+            label: "flake-templates",
+            link: "/templates/",
+            icon: "document",
             items: [
               {
-                label: 'General',
+                label: "General",
                 items: [
-                  { label: 'Overview', slug: 'templates' },
-                  { label: 'CI & Automation', slug: 'templates/ci' },
+                  { label: "Overview", slug: "templates" },
+                  { label: "CI & Automation", slug: "templates/ci" },
                 ],
               },
               {
-                label: 'Language Templates',
+                label: "Language Templates",
                 items: [
                   {
-                    label: 'C',
+                    label: "C",
                     items: [
-                      { label: 'C (Clang)', slug: 'templates/c/clang' },
-                      { label: 'C (GCC)', slug: 'templates/c/gcc' },
+                      { label: "C (Clang)", slug: "templates/c/clang" },
+                      { label: "C (GCC)", slug: "templates/c/gcc" },
                     ],
                   },
                 ],

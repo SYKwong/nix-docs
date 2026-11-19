@@ -10,10 +10,10 @@ Unified Astro Starlight documentation hub aggregating plain Markdown from `nix-c
 
 ## Content Sources
 
-| Project | Repository | Docs Path | Site Route | Sync Trigger |
-| :--- | :--- | :--- | :--- | :--- |
-| **`nix-config`** | [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config) | `docs/` | `/nix-config/` | GitLab `notify-docs` + hourly cron |
-| **`flake-templates`** | [`SYKwong/flake-templates`](https://github.com/SYKwong/flake-templates) | `docs/` | `/templates/` | GitHub `notify-docs.yml` + hourly cron |
+| Project               | Repository                                                              | Docs Path | Site Route     | Sync Trigger                           |
+| :-------------------- | :---------------------------------------------------------------------- | :-------- | :------------- | :------------------------------------- |
+| **`nix-config`**      | [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config)       | `docs/`   | `/nix-config/` | GitLab `notify-docs` + hourly cron     |
+| **`flake-templates`** | [`SYKwong/flake-templates`](https://github.com/SYKwong/flake-templates) | `docs/`   | `/templates/`  | GitHub `notify-docs.yml` + hourly cron |
 
 ---
 
@@ -38,3 +38,16 @@ bash scripts/sync-docs.sh --remote
 
 > [!NOTE]
 > Files under `src/content/docs/` (except `src/content/docs/index.md`) are automatically synced and committed from [`kylekwong/nix-config`](https://gitlab.com/kylekwong/nix-config) and [`SYKwong/flake-templates`](https://github.com/SYKwong/flake-templates) via `.github/workflows/deploy.yml`. Edit documentation in its upstream source repository rather than directly in `src/content/docs/`.
+
+---
+
+## Formatting
+
+Code and documentation authored in this repository are formatted with `treefmt-nix` (Prettier, `nixfmt`, `deadnix`, `statix`, `shfmt`, and `shellcheck`):
+
+```bash
+nix fmt
+nix flake check
+```
+
+Upstream-synced directories (`src/content/docs/nix-config/` and `src/content/docs/templates/`) and `package-lock.json` are excluded because they are formatted in their respective source repositories. `flake.lock` is updated automatically every week via `.github/workflows/update-flake.yml`.
