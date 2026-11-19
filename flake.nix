@@ -29,6 +29,7 @@
 
           programs = {
             deadnix.enable = true;
+            just.enable = true;
             nixfmt.enable = true;
             prettier.enable = true;
             shellcheck = {
@@ -61,5 +62,21 @@
       checks = forAllSystems (system: {
         formatting = treefmtEval.${system}.config.build.check self;
       });
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.git
+              pkgs.just
+              pkgs.nodejs
+            ];
+          };
+        }
+      );
     };
 }

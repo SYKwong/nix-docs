@@ -47,7 +47,7 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.sync.outputs.should_deploy == 'true'
         with:
-          node-version: 22
+          node-version: "lts/*"
           cache: npm
 
       - name: Install dependencies

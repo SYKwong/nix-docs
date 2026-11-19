@@ -20,11 +20,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "lts/*"
           cache: npm
 
       - name: Update npm dependencies
         run: npm update --no-audit --no-fund
+
+      - name: Audit npm dependencies
+        run: npm audit --audit-level=high
 
       - name: Verify Starlight build
         run: npm run build

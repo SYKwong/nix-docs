@@ -43,11 +43,13 @@ bash scripts/sync-docs.sh --remote
 
 ## Formatting
 
-Code and documentation authored in this repository are formatted with `treefmt-nix` (Prettier, `nixfmt`, `deadnix`, `statix`, `shfmt`, and `shellcheck`):
+Code and documentation authored in this repository are formatted with `treefmt-nix` (Prettier, `just`, `nixfmt`, `deadnix`, `statix`, `shfmt`, and `shellcheck`):
 
 ```bash
-nix fmt
-nix flake check
+just format   # nix fmt
+just check    # nix flake check + npm run build
 ```
+
+Common tasks are also available via [`justfile`](./justfile) (`just --list`): `dev`, `build`, `preview`, `clean`, `sync`, `sync-remote`, `format`, `check`, `audit`, `update-flake`, and `update-npm`.
 
 Upstream-synced directories (`src/content/docs/nix-config/` and `src/content/docs/templates/`) and `package-lock.json` are excluded because they are formatted in their respective source repositories. Weekly workflows keep `flake.lock` (`.github/workflows/update-flake.yml`), in-range npm dependencies (`.github/workflows/update-npm.yml`), and formatting (`.github/workflows/format.yml`) up to date automatically.
