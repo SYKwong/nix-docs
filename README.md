@@ -29,7 +29,7 @@ All upstream documentation is committed directly under `src/content/docs/` so `n
 To pull the latest documentation from `nix-config` and `flake-templates`:
 
 ```bash
-# Sync from local checkouts (~/nix-config/docs and ~/Templates/flake-templates/docs) when present:
+# Sync from local checkouts when present (checks ~/nix-config, ~/Projects/*, sibling dirs, or env overrides):
 npm run sync
 
 # Force sync from upstream GitLab/GitHub remotes:
